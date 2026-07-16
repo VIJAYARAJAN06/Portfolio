@@ -1,3 +1,3 @@
 export * from "./gsap";
-export * from "./useAnimation";
-export { useLenisScroll } from "./useLenisScroll";
+export * from "../hooks/useAnimation";
+export { useLenisScroll } from "../hooks/useLenisScroll";
