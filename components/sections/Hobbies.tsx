@@ -84,7 +84,7 @@ function RubiksCube() {
 function PCBTrace() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const progRef = useRef(0);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
 
   const TRACES = [
     { points: [[10, 40], [80, 40], [80, 80], [140, 80]] },
