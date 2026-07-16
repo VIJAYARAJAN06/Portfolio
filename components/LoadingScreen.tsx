@@ -130,7 +130,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
           <motion.div
             initial={{ opacity: 0, y: -30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "power2.out" }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
             className="absolute top-12 flex items-center gap-3 z-10"
           >
             <motion.div
