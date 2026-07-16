@@ -174,7 +174,7 @@ function EnergyOrb() {
 // ── Signal Particles (circuit data) ───────────────────────────────────────
 function SignalParticles() {
   const count = 120;
-  const posRef = useRef<Float32Array>(null as any);
+  const posRef = useRef<Float32Array | null>(null);
   const pointsRef = useRef<THREE.Points>(null);
 
   const positions = new Float32Array(count * 3);

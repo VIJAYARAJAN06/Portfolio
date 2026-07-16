@@ -83,7 +83,7 @@ function RubiksCube() {
 // ── PCB Trace Growth ─────────────────────────────────────────────────────
 function PCBTrace() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const progRef = useRef(0);
+  const progRef = useRef<number>(0);
   const rafRef = useRef<number | undefined>(undefined);
 
   const TRACES = [
