@@ -640,16 +640,24 @@ export default function App() {
               </div>
             ) : (
               <form
-                action="https://formsubmit.co/vijayrajan2006@gmail.com"
-                method="POST"
-                onSubmit={() => setContactSubmitted(true)}
+                onSubmit={async (e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.target);
+                  formData.append("access_key", "8f4b0dfa-8a56-4c4d-a773-45bbbc5bc692");
+                  formData.append("to_email", "vijayrajan2006@gmail.com");
+                  
+                  try {
+                    await fetch("https://api.web3forms.com/submit", {
+                      method: "POST",
+                      body: formData
+                    });
+                  } catch (err) {
+                    console.log(err);
+                  }
+                  setContactSubmitted(true);
+                }}
                 className="space-y-6 font-sans text-xs sm:text-sm"
               >
-                {/* FormSubmit Configuration for Direct Email Delivery */}
-                <input type="hidden" name="_subject" value="New Portfolio Message for Vijayarajan A!" />
-                <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_template" value="table" />
-
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block font-mono text-slate-300 mb-2 font-bold">Name</label>
@@ -663,7 +671,7 @@ export default function App() {
 
                 <div>
                   <label className="block font-mono text-slate-300 mb-2 font-bold">Subject</label>
-                  <input required name="message_subject" type="text" placeholder="Opportunity / Project Discussion" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
+                  <input required name="subject" type="text" placeholder="Opportunity / Project Discussion" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
                 </div>
 
                 <div>
