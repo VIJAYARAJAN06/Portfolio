@@ -156,7 +156,7 @@ export const selectedProjects = [
     number: "04",
     title: "Smart Shopping System – RFID Reader Version",
     subtitle: "13.56MHz Contactless RFID Auto-Billing & Anti-Collision Cart",
-    image: "/project-shopping.jpg",
+    image: "/project-rfid.jpg",
     tags: ["ESP32/ESP8266", "RFID RC522", "13.56MHz SPI", "LCD Display", "XAMPP", "Localhost IoT Platform"],
     description: "Retail automation cart prototype utilizing 13.56MHz SPI RFID RC522 contactless tags for instant item detection, dynamic item removal handling, and database billing sync.",
     caseStudy: {
