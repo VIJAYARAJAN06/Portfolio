@@ -633,29 +633,42 @@ export default function App() {
               <div className="py-12 text-center font-mono space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-[#C51F1F] mx-auto" />
                 <h3 className="text-2xl font-bold text-white">MESSAGE TRANSMITTED</h3>
-                <p className="text-xs text-slate-400">Thank you! Vijayarajan will get back to you shortly.</p>
+                <p className="text-xs text-slate-400">Thank you! Your message has been routed to Vijayarajan's email inbox.</p>
+                <button onClick={() => setContactSubmitted(false)} className="mt-4 px-6 py-2.5 rounded-xl bg-white text-black font-extrabold text-xs">
+                  Send Another Message
+                </button>
               </div>
             ) : (
-              <form onSubmit={(e) => { e.preventDefault(); setContactSubmitted(true); }} className="space-y-6 font-sans text-xs sm:text-sm">
+              <form
+                action="https://formsubmit.co/vijayrajan2006@gmail.com"
+                method="POST"
+                onSubmit={() => setContactSubmitted(true)}
+                className="space-y-6 font-sans text-xs sm:text-sm"
+              >
+                {/* FormSubmit Configuration for Direct Email Delivery */}
+                <input type="hidden" name="_subject" value="New Portfolio Message for Vijayarajan A!" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block font-mono text-slate-300 mb-2 font-bold">Name</label>
-                    <input required type="text" placeholder="Your Name" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
+                    <input required name="name" type="text" placeholder="Your Name" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
                   </div>
                   <div>
                     <label className="block font-mono text-slate-300 mb-2 font-bold">Email</label>
-                    <input required type="email" placeholder="your.email@domain.com" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
+                    <input required name="email" type="email" placeholder="your.email@domain.com" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
                   </div>
                 </div>
 
                 <div>
                   <label className="block font-mono text-slate-300 mb-2 font-bold">Subject</label>
-                  <input required type="text" placeholder="Opportunity / Project Discussion" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
+                  <input required name="message_subject" type="text" placeholder="Opportunity / Project Discussion" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
                 </div>
 
                 <div>
                   <label className="block font-mono text-slate-300 mb-2 font-bold">Message</label>
-                  <textarea required rows={5} placeholder="Write your message..." className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F] resize-none" />
+                  <textarea required name="message" rows={5} placeholder="Write your message..." className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F] resize-none" />
                 </div>
 
                 <button type="submit" className="w-full py-4 rounded-2xl bg-[#C51F1F] text-white font-extrabold font-mono text-sm hover:bg-[#a01818] transition-all shadow-lg flex items-center justify-center gap-2">
