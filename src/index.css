@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #090909;
+    color: #F5F3EF;
+    font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* Primary Color Palette System */
+:root {
+  --bg-dark-maroon: #260606;
+  --bg-maroon-accent: #3A0909;
+  --bg-black: #090909;
+  --off-white: #F5F3EF;
+  --accent-red: #C51F1F;
+}
+
+/* Hero Container styling exactly matching reference image */
+.hero-editorial-panel {
+  background: linear-gradient(165deg, #3A0909 0%, #260606 40%, #090909 100%);
+  border-radius: 32px;
+  border: 1px solid rgba(197, 31, 31, 0.25);
+  box-shadow: 
+    0 30px 90px rgba(0, 0, 0, 0.9),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-grain-overlay {
+  background-image: radial-gradient(rgba(197, 31, 31, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bento-card-editorial {
+  background: #141414;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.bento-card-editorial:hover {
+  border-color: rgba(197, 31, 31, 0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(197, 31, 31, 0.15);
+}
+
+/* Marquee infinite scroll animation */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%;
+  animation: marquee 25s linear infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #090909;
+}
+::-webkit-scrollbar-thumb {
+  background: #260606;
+  border: 1px solid rgba(197, 31, 31, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C51F1F;
+}
