@@ -87,7 +87,7 @@ export const selectedProjects = [
     number: "01",
     title: "SENTINEL – IoT Security & Environmental Monitoring System",
     subtitle: "ESP32 Multi-Sensor Telemetry & Instant Alerts",
-    image: `${import.meta.env.BASE_URL}project-sentinel.jpg`,
+    image: "/project-sentinel.jpg",
     tags: ["ESP32", "Embedded C", "DHT11", "PIR", "MQ Gas Sensor", "LDR", "Sound Sensor", "Telegram Bot", "Web Dashboard"],
     description: "Engineered an ESP32-based multi-sensor monitoring system integrating PIR, sound, gas, temperature, humidity, and light sensors, delivering live SAFE/ALERT status via a web dashboard and Telegram alerts.",
     caseStudy: {
@@ -110,7 +110,7 @@ export const selectedProjects = [
     number: "02",
     title: "Flowra – Wi-Fi Cloud Gateway for Industrial IoT",
     subtitle: "ESP32 ESP-IDF Wi-Fi/MQTT Local & Cloud Gateway",
-    image: `${import.meta.env.BASE_URL}project-flowra.jpg`,
+    image: "/project-flowra.jpg",
     tags: ["ESP32", "ESP-IDF", "Wi-Fi", "MQTT", "NVS", "HTTP Server", "Embedded C"],
     description: "Built an ESP32 Wi-Fi/MQTT gateway with AP-mode setup, NVS-based credential storage, and MQTT status publishing, enabling both offline local configuration and online cloud device control.",
     caseStudy: {
@@ -133,7 +133,7 @@ export const selectedProjects = [
     number: "03",
     title: "Smart Shopping System – Barcode Scanner Version (Advanced Upgrade)",
     subtitle: "Optical Barcode Scanning, SPI Touch Screen TFT UI & XAMPP IoT Cart",
-    image: `${import.meta.env.BASE_URL}project-barcode.jpg`,
+    image: "/project-barcode.jpg",
     tags: ["ESP32", "Barcode Scanner Module", "SPI Touch Screen TFT", "XAMPP", "Localhost IoT Platform", "Embedded C++"],
     description: "Advanced upgraded retail automation cart integrating a laser barcode scanner over UART, 3.5-inch SPI Color Touch Screen TFT Display UI, and XAMPP Localhost IoT database synchronization.",
     caseStudy: {
@@ -156,7 +156,7 @@ export const selectedProjects = [
     number: "04",
     title: "Smart Shopping System – RFID Reader Version",
     subtitle: "13.56MHz Contactless RFID Auto-Billing & Anti-Collision Cart",
-    image: `${import.meta.env.BASE_URL}project-rfid.jpg`,
+    image: "/project-rfid.jpg",
     tags: ["ESP32/ESP8266", "RFID RC522", "13.56MHz SPI", "LCD Display", "XAMPP", "Localhost IoT Platform"],
     description: "Retail automation cart prototype utilizing 13.56MHz SPI RFID RC522 contactless tags for instant item detection, dynamic item removal handling, and database billing sync.",
     caseStudy: {
