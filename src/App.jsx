@@ -633,27 +633,23 @@ export default function App() {
               <div className="py-12 text-center font-mono space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-[#C51F1F] mx-auto" />
                 <h3 className="text-2xl font-bold text-white">MESSAGE TRANSMITTED</h3>
-                <p className="text-xs text-slate-400">Thank you! Your message has been routed to Vijayarajan's email inbox.</p>
+                <p className="text-xs text-slate-400">Thank you! Your default email application was triggered to send this message directly to vijayrajan2006@gmail.com.</p>
                 <button onClick={() => setContactSubmitted(false)} className="mt-4 px-6 py-2.5 rounded-xl bg-white text-black font-extrabold text-xs">
                   Send Another Message
                 </button>
               </div>
             ) : (
               <form
-                onSubmit={async (e) => {
+                onSubmit={(e) => {
                   e.preventDefault();
                   const formData = new FormData(e.target);
-                  formData.append("access_key", "8f4b0dfa-8a56-4c4d-a773-45bbbc5bc692");
-                  formData.append("to_email", "vijayrajan2006@gmail.com");
+                  const name = formData.get("name");
+                  const email = formData.get("email");
+                  const subject = formData.get("subject");
+                  const message = formData.get("message");
                   
-                  try {
-                    await fetch("https://api.web3forms.com/submit", {
-                      method: "POST",
-                      body: formData
-                    });
-                  } catch (err) {
-                    console.log(err);
-                  }
+                  const mailtoLink = `mailto:vijayrajan2006@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                  window.location.href = mailtoLink;
                   setContactSubmitted(true);
                 }}
                 className="space-y-6 font-sans text-xs sm:text-sm"
