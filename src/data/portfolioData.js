@@ -6,6 +6,7 @@ export const personalInfo = {
   email: "vijayrajan2006@gmail.com",
   linkedin: "https://linkedin.com/in/a-vijay-rajan",
   github: "https://github.com/a-vijay-rajan",
+  vercelUrl: "https://portfolio-jet-nine-x976idrizy.vercel.app",
   summary: "Final-year ECE student (CGPA 8.12/10, GATE EC Qualified) with 3 internships and 10+ embedded/IoT projects on ESP32, STM32, and Arduino. Skilled in Embedded C, sensor interfacing, UART/SPI/I2C, and MQTT-based IoT cloud connectivity. Seeking an Embedded/IoT/Hardware Engineer internship or fresher role.",
   welcomeTag: "WELCOME TO MY PORTFOLIO",
   description: "Final-year ECE student building real-time embedded and IoT solutions with microcontrollers, communication protocols, and hardware-software integration.",
