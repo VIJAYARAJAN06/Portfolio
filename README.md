@@ -1,9 +1,19 @@
-# ⚡ Vijayarajan A - Interactive 3D Embedded Systems & IoT Portfolio
+# VIJAYARAJAN A — ECE Personal Portfolio Website
 
-A modern, futuristic 3D web experience built using React.js, Vite, Three.js, React Three Fiber, Tailwind CSS, and Framer Motion to showcase Embedded Systems and IoT hardware projects.
+Personal portfolio website for **Vijayarajan A** (Electronics and Communication Engineering Student specializing in Embedded Systems, Embedded Firmware, IoT, and Hardware Engineering).
 
-![3D Portfolio Preview](https://img.shields.io/badge/Status-Production%20Ready-00f3ff)
-![Tech Stack](https://img.shields.io/badge/Stack-React%20%7C%20Three.js%20%7C%20Tailwind-b026ff)
+## 🌐 Live Deployments
+
+- **GitHub Pages Live**: [https://vijayarajan06.github.io/Portfolio/](https://vijayarajan06.github.io/Portfolio/)
+- **Vercel Production Deployment**: [https://portfolio-vijayarajan06.vercel.app](https://portfolio-vijayarajan06.vercel.app)
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+- **Frontend**: React 18, Vite 6, Tailwind CSS 3.4
+- **Animations & Icons**: Lucide React, Framer Motion
+- **Hosting**: GitHub Pages & Vercel
 
 ---
 
