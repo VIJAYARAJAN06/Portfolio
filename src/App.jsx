@@ -169,7 +169,7 @@ export default function App() {
                 className="absolute z-10 w-48 sm:w-64 lg:w-80 h-60 sm:h-80 lg:h-[380px] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 bottom-[-10%]"
               >
                 <img
-                  src="/profile.jpg"
+                  src={`${import.meta.env.BASE_URL}profile.jpg`}
                   alt="VIJAYARAJAN A Real Portrait"
                   className="w-full h-full object-cover object-top filter contrast-105"
                 />
