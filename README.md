@@ -4,8 +4,8 @@ Personal portfolio website for **Vijayarajan A** (Electronics and Communication 
 
 ## 🌐 Live Deployments
 
-- **Vercel Production Live**: [https://portfolio-jet-nine-x976idrizy.vercel.app](https://portfolio-jet-nine-x976idrizy.vercel.app)
-- **GitHub Pages Live**: [https://vijayarajan06.github.io/Portfolio/](https://vijayarajan06.github.io/Portfolio/)
+- **Vercel Production (Primary Live Site)**: [https://portfolio-jet-nine-x976idrizy.vercel.app](https://portfolio-jet-nine-x976idrizy.vercel.app)
+- **GitHub Pages (Backup)**: [https://vijayarajan06.github.io/Portfolio/](https://vijayarajan06.github.io/Portfolio/)
 
 ---
 
