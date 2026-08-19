@@ -111,29 +111,20 @@ export default function App() {
           </div>
 
           <div className="relative z-20 flex-1 flex flex-col justify-center items-center text-center my-auto py-8">
-            <motion.div
-              initial={{ opacity: 0, y: -15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+            <div
               className="text-base sm:text-xl lg:text-2xl font-mono text-white font-extrabold uppercase tracking-[0.25em] mb-3 py-1 px-4 rounded-full bg-[#C51F1F]/20 border border-[#C51F1F]/60 shadow-[0_0_20px_rgba(197,31,31,0.3)] inline-block"
             >
               ELECTRONICS & COMMUNICATION
-            </motion.div>
+            </div>
 
             <div className="relative w-full flex justify-center items-center my-4 min-h-[240px] sm:min-h-[360px] lg:min-h-[440px]">
-              <motion.h1
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8 }}
+              <h1
                 className="text-[17vw] sm:text-[15vw] lg:text-[13vw] font-extrabold text-white leading-none tracking-tight font-sans select-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.8)] z-0"
               >
                 ENGINEER
-              </motion.h1>
+              </h1>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
+              <div
                 className="absolute z-10 w-48 sm:w-64 lg:w-80 h-60 sm:h-80 lg:h-[380px] rounded-3xl overflow-hidden shadow-2xl border-2 border-white/20 bottom-[-10%]"
               >
                 <img
@@ -142,7 +133,7 @@ export default function App() {
                   className="w-full h-full object-cover object-top filter contrast-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#090909] via-transparent to-transparent opacity-80 pointer-events-none" />
-              </motion.div>
+              </div>
             </div>
           </div>
 
