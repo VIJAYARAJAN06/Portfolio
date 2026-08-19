@@ -290,9 +290,9 @@ export const nptelCertificates = [
 
 export const achievementsData = [
   {
-    title: "Placement Coordinator",
-    year: "2025 - 2026",
-    desc: "Serving as Placement Coordinator, ECE Department, SNS College of Technology, liaising between students and recruiters to organize placement drives and interview logistics."
+    title: "Placement Coordinator (PC)",
+    year: "2026 - 2027",
+    desc: "Serving as Placement Coordinator (PC), ECE Department, SNS College of Technology, liaising between students and recruiters to organize placement drives and interview logistics."
   },
   {
     title: "MSME Hackathon & Tech Symposium",
@@ -301,8 +301,8 @@ export const achievementsData = [
   },
   {
     title: "Electroforge Organizer",
-    year: "2024",
-    desc: "Organized Electroforge, a circuit debugging event with 50+ participants, demonstrating leadership and technical event management."
+    year: "2026",
+    desc: "Organized Electroforge 2026, a circuit debugging event with 50+ participants, demonstrating leadership and technical event management."
   },
   {
     title: "10+ Projects Built",
