@@ -255,16 +255,44 @@ export const educationData = [
   }
 ];
 
+export const gateAchievement = {
+  title: "GATE EC Qualified",
+  year: "2025",
+  badge: "NATIONAL COMPETITIVE EXAM",
+  desc: "Qualified in Graduate Aptitude Test in Engineering (GATE) - Electronics & Communication Engineering, demonstrating strong analytical and core engineering fundamentals.",
+  highlight: true
+};
+
+export const nptelCertificates = [
+  {
+    id: "nptel-semiconductor",
+    title: "Semiconductor Devices for Next Generation Field Effect Transistors (More than Moore): A Physics Perspective",
+    offeredBy: "IIT Roorkee",
+    period: "Jan - Apr 2026 (12 Week Course)",
+    score: "60% (Elite)",
+    badge: "Elite Certificate",
+    rollNo: "NPTEL26EE86S550505565",
+    image: "/nptel_semiconductor.jpg",
+    tags: ["Semiconductor Devices", "FET Physics", "IIT Roorkee", "Elite Grade"]
+  },
+  {
+    id: "nptel-vlsi",
+    title: "VLSI Design Flow: RTL to GDS",
+    offeredBy: "IIIT Delhi / IIT Madras",
+    period: "Jul - Oct 2025 (12 Week Course)",
+    score: "51%",
+    badge: "NPTEL Certification",
+    rollNo: "NPTEL25EE106S654303046",
+    image: "/nptel_vlsi.jpg",
+    tags: ["VLSI Design", "RTL to GDS", "IIIT Delhi", "Digital Circuit Design"]
+  }
+];
+
 export const achievementsData = [
   {
     title: "Placement Coordinator",
     year: "2025 - 2026",
     desc: "Serving as Placement Coordinator, ECE Department, SNS College of Technology, liaising between students and recruiters to organize placement drives and interview logistics."
-  },
-  {
-    title: "GATE EC Qualified & NPTEL",
-    year: "2024 - 2025",
-    desc: "GATE EC Qualified; completed two NPTEL certification courses in core engineering domains."
   },
   {
     title: "MSME Hackathon & Tech Symposium",

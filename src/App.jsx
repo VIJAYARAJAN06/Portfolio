@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import { 
   Cpu, Zap, Code, Layers, Radio, Award, GraduationCap, 
   MapPin, Mail, Phone, Github, Linkedin, ExternalLink, ArrowRight, 
   CheckCircle2, Download, ShieldCheck, Activity, Menu, X, FileText, Send,
-  ArrowUpRight, ArrowDown, Sparkles, Sliders, ChevronRight
+  ArrowUpRight, ArrowDown, Sparkles, Sliders, ChevronRight, Loader2, Eye
 } from 'lucide-react';
 import { 
   personalInfo, heroKeywords, domains, technicalToolkit, selectedProjects, 
-  experienceData, educationData, achievementsData, engineeringInterests, toolsMarquee 
+  experienceData, educationData, achievementsData, engineeringInterests, toolsMarquee,
+  gateAchievement, nptelCertificates
 } from './data/portfolioData';
 
 export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeCaseStudy, setActiveCaseStudy] = useState(null);
+  const [activeCertModal, setActiveCertModal] = useState(null);
   const [contactSubmitted, setContactSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
+  const [sendError, setSendError] = useState('');
   const [activeTab, setActiveTab] = useState('home');
+  const formRef = useRef();
 
   const navLinks = [
     { id: 'home', label: 'Home' },
@@ -24,6 +30,7 @@ export default function App() {
     { id: 'projects', label: 'Projects' },
     { id: 'experience', label: 'Experience' },
     { id: 'education', label: 'Education' },
+    { id: 'certifications', label: 'Certifications' },
     { id: 'contact', label: 'Contact' }
   ];
 
@@ -143,7 +150,7 @@ export default function App() {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-xs sm:text-sm font-mono text-slate-300 font-bold uppercase tracking-[0.3em] mb-2"
+              className="text-base sm:text-xl lg:text-2xl font-mono text-white font-extrabold uppercase tracking-[0.25em] mb-3 py-1 px-4 rounded-full bg-[#C51F1F]/20 border border-[#C51F1F]/60 shadow-[0_0_20px_rgba(197,31,31,0.3)] inline-block"
             >
               ELECTRONICS & COMMUNICATION
             </motion.div>
@@ -569,24 +576,163 @@ export default function App() {
       </section>
 
       {/* ==================================================================== */}
-      {/* ACHIEVEMENTS & ACTIVITIES                                            */}
+      {/* CERTIFICATIONS & GATE EC HIGHLIGHTS                                  */}
       {/* ==================================================================== */}
-      <section className="py-20 bg-[#090909] border-t border-white/5">
-        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-12">
-          <span className="text-xs font-mono text-[#C51F1F] uppercase font-bold tracking-widest block text-center">HONORS & RECOGNITION</span>
+      <section id="certifications" className="py-24 bg-[#090909] border-t border-white/5">
+        <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-16">
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {achievementsData.map((ach, idx) => (
-              <div key={idx} className="bento-card-editorial p-6 space-y-2">
-                <Award className="w-8 h-8 text-[#C51F1F] mb-2" />
-                <span className="text-[11px] font-mono text-[#C51F1F] font-bold">{ach.year}</span>
-                <h4 className="font-bold text-white text-base font-sans">{ach.title}</h4>
-                <p className="text-xs text-slate-400 font-sans leading-relaxed">{ach.desc}</p>
-              </div>
-            ))}
+          <div className="text-center space-y-3">
+            <span className="text-xs font-mono text-[#C51F1F] uppercase font-bold tracking-widest">CREDENTIALS & ACCOMPLISHMENTS</span>
+            <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-sans">GATE & NPTEL CERTIFICATIONS</h2>
           </div>
+
+          {/* DEDICATED GATE EC QUALIFIED HIGHLIGHT BANNER */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-[#3A0909] via-[#260606] to-[#090909] border-2 border-[#C51F1F] p-8 sm:p-10 shadow-[0_0_50px_rgba(197,31,31,0.25)] flex flex-col md:flex-row items-center justify-between gap-8 group"
+          >
+            <div className="absolute top-0 right-0 w-96 h-96 bg-[#C51F1F]/10 rounded-full blur-3xl pointer-events-none group-hover:bg-[#C51F1F]/20 transition-all" />
+
+            <div className="space-y-4 max-w-2xl relative z-10 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#C51F1F] text-white font-mono text-xs font-extrabold uppercase tracking-widest shadow-lg animate-pulse">
+                <Award className="w-4 h-4 text-amber-300" />
+                <span>{gateAchievement.badge}</span>
+              </div>
+              
+              <h3 className="text-3xl sm:text-4xl font-extrabold text-white font-sans tracking-tight">
+                {gateAchievement.title}
+              </h3>
+              
+              <p className="text-sm text-slate-300 font-sans leading-relaxed">
+                {gateAchievement.desc}
+              </p>
+            </div>
+
+            <div className="relative z-10 shrink-0 text-center md:text-right font-mono bg-black/60 p-6 rounded-2xl border border-white/10 space-y-1 backdrop-blur-md">
+              <div className="text-xs text-slate-400 font-bold uppercase tracking-widest">Qualified Year</div>
+              <div className="text-4xl font-extrabold text-[#C51F1F] tracking-tight">{gateAchievement.year}</div>
+              <div className="text-[11px] text-slate-300 font-semibold pt-1">EC (Electronics & Communication)</div>
+            </div>
+          </motion.div>
+
+          {/* NPTEL INDIVIDUAL CERTIFICATES CAROUSEL / CARDS WITH POPUP MODAL */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-mono text-white font-bold flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-[#C51F1F]" />
+              <span>NPTEL Online Certifications (IIT & IIIT Courses)</span>
+            </h3>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {nptelCertificates.map((cert) => (
+                <motion.div
+                  key={cert.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="bento-card-editorial p-6 flex flex-col justify-between space-y-6 border border-white/10 hover:border-[#C51F1F]/60 group"
+                >
+                  <div className="space-y-4">
+                    <div className="flex justify-between items-start gap-4">
+                      <span className="px-3 py-1 rounded-full bg-[#C51F1F]/20 text-[#C51F1F] font-mono text-xs font-bold border border-[#C51F1F]/30">
+                        {cert.badge}
+                      </span>
+                      <span className="text-xs font-mono text-slate-400 font-bold">{cert.period}</span>
+                    </div>
+
+                    <h4 className="text-lg font-bold text-white font-sans leading-snug group-hover:text-[#C51F1F] transition-colors">
+                      {cert.title}
+                    </h4>
+
+                    <div className="flex items-center gap-4 text-xs font-mono text-slate-300">
+                      <div><span className="text-slate-500">Offered By:</span> <strong className="text-white">{cert.offeredBy}</strong></div>
+                      <div><span className="text-slate-500">Score:</span> <strong className="text-[#C51F1F] font-extrabold">{cert.score}</strong></div>
+                    </div>
+                  </div>
+
+                  {/* Certificate Image Preview Card with Clickable Zoom */}
+                  <div className="relative h-48 rounded-xl overflow-hidden border border-white/10 group-hover:border-[#C51F1F]/40 cursor-pointer" onClick={() => setActiveCertModal(cert)}>
+                    <img
+                      src={cert.image}
+                      alt={cert.title}
+                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="px-4 py-2 rounded-xl bg-[#C51F1F] text-white font-mono text-xs font-extrabold flex items-center gap-2 shadow-2xl">
+                        <Eye className="w-4 h-4" />
+                        <span>View Certificate Image</span>
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
+                    {cert.tags.map((t, idx) => (
+                      <span key={idx} className="px-2.5 py-0.5 rounded bg-black text-slate-300 font-mono text-[11px] border border-white/10">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* OTHER HONORS AND ACTIVITIES */}
+          <div className="space-y-6 pt-6 border-t border-white/5">
+            <h3 className="text-xl font-mono text-white font-bold">Leadership & Technical Achievements</h3>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {achievementsData.map((ach, idx) => (
+                <div key={idx} className="bento-card-editorial p-6 space-y-2">
+                  <Award className="w-8 h-8 text-[#C51F1F] mb-2" />
+                  <span className="text-[11px] font-mono text-[#C51F1F] font-bold">{ach.year}</span>
+                  <h4 className="font-bold text-white text-base font-sans">{ach.title}</h4>
+                  <p className="text-xs text-slate-400 font-sans leading-relaxed">{ach.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
+
+      {/* NPTEL CERTIFICATE POPUP MODAL */}
+      {activeCertModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-xl">
+          <div className="w-full max-w-4xl bg-[#141414] border border-[#C51F1F]/40 rounded-3xl p-6 space-y-6 max-h-[95vh] overflow-y-auto font-sans">
+            
+            <div className="flex justify-between items-start border-b border-white/10 pb-4">
+              <div>
+                <span className="text-xs font-mono text-[#C51F1F] font-bold">NPTEL OFFICIAL CERTIFICATE</span>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white mt-1">{activeCertModal.title}</h3>
+                <p className="text-xs font-mono text-slate-400 mt-1">{activeCertModal.offeredBy} • Roll No: {activeCertModal.rollNo}</p>
+              </div>
+              <button onClick={() => setActiveCertModal(null)} className="p-2.5 rounded-xl bg-black text-slate-400 hover:text-white">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-white p-2">
+              <img
+                src={activeCertModal.image}
+                alt={activeCertModal.title}
+                className="w-full h-auto object-contain max-h-[70vh] mx-auto rounded-lg"
+              />
+            </div>
+
+            <div className="flex justify-between items-center pt-2 font-mono text-xs">
+              <span className="text-slate-400">Score: <strong className="text-[#C51F1F] font-bold">{activeCertModal.score}</strong></span>
+              <button onClick={() => setActiveCertModal(null)} className="px-6 py-2.5 rounded-xl bg-white text-black font-bold">
+                Close Viewer
+              </button>
+            </div>
+
+          </div>
+        </div>
+      )}
 
       {/* ==================================================================== */}
       {/* CURRENTLY EXPLORING & TOOLS MARQUEE                                  */}
@@ -632,36 +778,71 @@ export default function App() {
             {contactSubmitted ? (
               <div className="py-12 text-center font-mono space-y-3">
                 <CheckCircle2 className="w-12 h-12 text-[#C51F1F] mx-auto" />
-                <h3 className="text-2xl font-bold text-white">MESSAGE TRANSMITTED</h3>
-                <p className="text-xs text-slate-400">Thank you! Your default email application was triggered to send this message directly to vijayrajan2006@gmail.com.</p>
+                <h3 className="text-2xl font-bold text-white">MESSAGE SENT SUCCESSFULLY</h3>
+                <p className="text-xs text-slate-400">Thank you! Your message has been sent directly to vijayrajan2006@gmail.com. I will get back to you shortly.</p>
                 <button onClick={() => setContactSubmitted(false)} className="mt-4 px-6 py-2.5 rounded-xl bg-white text-black font-extrabold text-xs">
                   Send Another Message
                 </button>
               </div>
             ) : (
               <form
-                onSubmit={(e) => {
+                ref={formRef}
+                onSubmit={async (e) => {
                   e.preventDefault();
-                  const formData = new FormData(e.target);
-                  const name = formData.get("name");
-                  const email = formData.get("email");
-                  const subject = formData.get("subject");
-                  const message = formData.get("message");
-                  
-                  const mailtoLink = `mailto:vijayrajan2006@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
-                  window.location.href = mailtoLink;
-                  setContactSubmitted(true);
+                  setIsSending(true);
+                  setSendError('');
+
+                  const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+                  const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+                  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
+
+                  try {
+                    if (serviceId !== 'YOUR_SERVICE_ID' && publicKey !== 'YOUR_PUBLIC_KEY') {
+                      await emailjs.sendForm(serviceId, templateId, formRef.current, publicKey);
+                      setContactSubmitted(true);
+                    } else {
+                      // Fallback mailto if keys not yet set in .env
+                      const formData = new FormData(formRef.current);
+                      const name = formData.get("user_name") || formData.get("name");
+                      const email = formData.get("user_email") || formData.get("email");
+                      const subject = formData.get("subject");
+                      const message = formData.get("message");
+                      
+                      const mailtoLink = `mailto:vijayrajan2006@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                      window.location.href = mailtoLink;
+                      setContactSubmitted(true);
+                    }
+                  } catch (error) {
+                    console.error("EmailJS Error:", error);
+                    setSendError("Failed to send automatically. Opening your email app instead...");
+                    setTimeout(() => {
+                      const formData = new FormData(formRef.current);
+                      const name = formData.get("user_name") || formData.get("name");
+                      const email = formData.get("user_email") || formData.get("email");
+                      const subject = formData.get("subject");
+                      const message = formData.get("message");
+                      window.location.href = `mailto:vijayrajan2006@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`)}`;
+                    }, 1500);
+                  } finally {
+                    setIsSending(false);
+                  }
                 }}
                 className="space-y-6 font-sans text-xs sm:text-sm"
               >
+                {sendError && (
+                  <div className="p-3 rounded-xl bg-red-950/80 border border-red-500/50 text-red-200 font-mono text-xs text-center">
+                    {sendError}
+                  </div>
+                )}
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label className="block font-mono text-slate-300 mb-2 font-bold">Name</label>
-                    <input required name="name" type="text" placeholder="Your Name" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
+                    <input required name="user_name" type="text" placeholder="Your Name" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
                   </div>
                   <div>
                     <label className="block font-mono text-slate-300 mb-2 font-bold">Email</label>
-                    <input required name="email" type="email" placeholder="your.email@domain.com" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
+                    <input required name="user_email" type="email" placeholder="your.email@domain.com" className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F]" />
                   </div>
                 </div>
 
@@ -675,9 +856,22 @@ export default function App() {
                   <textarea required name="message" rows={5} placeholder="Write your message..." className="w-full px-4 py-3.5 rounded-xl bg-black border border-white/10 text-white text-sm focus:outline-none focus:border-[#C51F1F] resize-none" />
                 </div>
 
-                <button type="submit" className="w-full py-4 rounded-2xl bg-[#C51F1F] text-white font-extrabold font-mono text-sm hover:bg-[#a01818] transition-all shadow-lg flex items-center justify-center gap-2">
-                  <span>Send Message</span>
-                  <ArrowRight className="w-4 h-4" />
+                <button
+                  type="submit"
+                  disabled={isSending}
+                  className="w-full py-4 rounded-2xl bg-[#C51F1F] text-white font-extrabold font-mono text-sm hover:bg-[#a01818] transition-all shadow-lg flex items-center justify-center gap-2 disabled:opacity-50"
+                >
+                  {isSending ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin" />
+                      <span>Sending Message...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Send Message</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </>
+                  )}
                 </button>
               </form>
             )}
