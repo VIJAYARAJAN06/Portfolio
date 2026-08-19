@@ -296,7 +296,7 @@ export const achievementsData = [
   },
   {
     title: "MSME Hackathon & Tech Symposium",
-    year: "2024",
+    year: "2023 - 2026",
     desc: "Participated in the MSME Hackathon; presented a technical project at Bannari Amman Institute of Technology Technical Symposium."
   },
   {
