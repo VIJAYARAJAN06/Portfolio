@@ -257,7 +257,7 @@ export const educationData = [
 
 export const gateAchievement = {
   title: "GATE EC Qualified",
-  year: "2025",
+  year: "2026",
   badge: "NATIONAL COMPETITIVE EXAM",
   desc: "Qualified in Graduate Aptitude Test in Engineering (GATE) - Electronics & Communication Engineering, demonstrating strong analytical and core engineering fundamentals.",
   highlight: true

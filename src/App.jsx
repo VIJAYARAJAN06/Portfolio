@@ -207,17 +207,6 @@ export default function App() {
 
             <div className="md:col-span-5 flex flex-wrap items-center md:justify-end gap-3 font-mono text-xs">
               <a
-                href={personalInfo.vercelUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="px-6 py-3.5 rounded-2xl bg-white text-black font-extrabold hover:bg-[#F5F3EF] transition-all shadow-lg flex items-center gap-2"
-              >
-                <Sparkles className="w-4 h-4 text-[#C51F1F]" />
-                <span>Live Vercel Site</span>
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
-
-              <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noreferrer"
@@ -254,15 +243,6 @@ export default function App() {
                 <span className="text-xs font-mono text-[#C51F1F] font-extrabold uppercase tracking-widest">
                   — ABOUT ME
                 </span>
-                <a
-                  href={personalInfo.vercelUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="px-3 py-1 rounded-full bg-[#C51F1F]/10 text-[#C51F1F] font-mono text-[11px] font-bold border border-[#C51F1F]/30 hover:bg-[#C51F1F] hover:text-white transition-all inline-flex items-center gap-1"
-                >
-                  <Sparkles className="w-3 h-3" />
-                  <span>Vercel Live App ↗</span>
-                </a>
               </div>
               <h2 className="text-3xl sm:text-5xl font-extrabold font-sans text-[#090909] leading-tight">
                 {personalInfo.aboutTitle}
