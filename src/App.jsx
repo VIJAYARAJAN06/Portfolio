@@ -181,15 +181,11 @@ export default function App() {
       </div>
 
       {/* ==================================================================== */}
-      {/* 2. ABOUT ME SECTION (SCROLL ANIMATED)                                */}
+      {/* 2. ABOUT ME SECTION                                                  */}
       {/* ==================================================================== */}
-      <motion.section 
+      <section 
         id="about" 
         className="py-24 bg-[#F5F3EF] text-[#090909]"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInUp}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
@@ -223,33 +219,21 @@ export default function App() {
 
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* ==================================================================== */}
       {/* 3. ENGINEERING DOMAINS (WHAT I BUILD)                                  */}
       {/* ==================================================================== */}
       <section id="domains" className="py-24 bg-[#090909]">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-16">
-          <motion.div 
-            className="text-center space-y-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
+          <div className="text-center space-y-3">
             <span className="text-xs font-mono text-[#C51F1F] uppercase font-bold tracking-widest">ENGINEERING CORE</span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-sans">WHAT I BUILD</h2>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            variants={staggerContainer}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {domains.map((dom, idx) => (
-              <motion.div key={idx} variants={fadeInUp} className="bento-card-editorial p-8 flex flex-col justify-between space-y-6 group">
+              <div key={idx} className="bento-card-editorial p-8 flex flex-col justify-between space-y-6 group">
                 <div>
                   <div className="text-xs font-mono text-[#C51F1F] font-extrabold">{dom.number}</div>
                   <h3 className="text-2xl font-bold text-white font-sans mt-2 group-hover:text-[#C51F1F] transition-colors">
@@ -267,9 +251,9 @@ export default function App() {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -278,26 +262,14 @@ export default function App() {
       {/* ==================================================================== */}
       <section id="skills" className="py-24 bg-[#090909] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-16">
-          <motion.div 
-            className="text-center space-y-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
+          <div className="text-center space-y-3">
             <span className="text-xs font-mono text-[#C51F1F] uppercase font-bold tracking-widest">TECHNICAL STACK</span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-sans">TECHNICAL SKILLS & HARDWARE</h2>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={staggerContainer}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {technicalToolkit.map((tool, idx) => (
-              <motion.div key={idx} variants={fadeInUp} className="bento-card-editorial p-7 space-y-4">
+              <div key={idx} className="bento-card-editorial p-7 space-y-4">
                 <h3 className="text-lg font-bold text-white font-sans flex items-center gap-2 border-b border-white/10 pb-3">
                   <Cpu className="w-5 h-5 text-[#C51F1F]" />
                   <span>{tool.category}</span>
@@ -309,9 +281,9 @@ export default function App() {
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -320,26 +292,16 @@ export default function App() {
       {/* ==================================================================== */}
       <section id="projects" className="py-24 bg-[#090909] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-16">
-          <motion.div 
-            className="text-center space-y-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
+          <div className="text-center space-y-3">
             <span className="text-xs font-mono text-[#C51F1F] uppercase font-bold tracking-widest">SELECTED WORK</span>
             <h2 className="text-3xl sm:text-5xl font-extrabold text-white font-sans">FEATURED PROJECTS</h2>
-          </motion.div>
+          </div>
 
           <div className="space-y-12">
             {selectedProjects.map((project) => (
-              <motion.div 
+              <div 
                 key={project.id} 
                 className="bento-card-editorial p-8 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center group"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeInUp}
               >
                 <div className="lg:col-span-6 space-y-6">
                   <div className="text-2xl font-mono text-[#C51F1F] font-extrabold">{project.number}</div>
@@ -379,7 +341,7 @@ export default function App() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover/img:opacity-30 transition-opacity" />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -390,26 +352,16 @@ export default function App() {
       {/* ==================================================================== */}
       <section id="experience" className="py-24 bg-[#090909] border-t border-white/5">
         <div className="max-w-5xl mx-auto px-6 sm:px-10 lg:px-12 space-y-12">
-          <motion.div 
-            className="text-center space-y-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
+          <div className="text-center space-y-3">
             <span className="text-xs font-mono text-[#C51F1F] font-bold uppercase tracking-widest">CAREER PATHWAY</span>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-sans text-white">WORK EXPERIENCE</h2>
-          </motion.div>
+          </div>
 
           <div className="space-y-8">
             {experienceData.map((exp, idx) => (
-              <motion.div 
+              <div 
                 key={idx} 
                 className="bento-card-editorial p-8 space-y-4"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, amount: 0.2 }}
-                variants={fadeInUp}
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/10 pb-4 gap-2">
                   <div>
@@ -431,7 +383,7 @@ export default function App() {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -443,13 +395,7 @@ export default function App() {
       <section id="certifications" className="py-24 bg-[#090909] border-t border-white/5">
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-16">
           
-          <motion.div 
-            className="bento-card-editorial p-8 bg-gradient-to-r from-[#260606] to-[#090909] border-2 border-[#C51F1F]/50 flex flex-col md:flex-row items-center justify-between gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-          >
+          <div className="bento-card-editorial p-8 bg-gradient-to-r from-[#260606] to-[#090909] border-2 border-[#C51F1F]/50 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2">
               <div className="inline-block px-3 py-1 rounded-md bg-[#C51F1F] text-white font-mono text-xs font-bold">
                 NATIONAL RANKING EXAM
@@ -462,22 +408,16 @@ export default function App() {
               <div className="text-2xl sm:text-3xl font-mono text-[#C51F1F] font-extrabold mt-1">{gateAchievement.score}</div>
               <div className="text-[11px] font-mono text-slate-300">{gateAchievement.percentile}</div>
             </div>
-          </motion.div>
+          </div>
 
           <div className="text-center space-y-3">
             <span className="text-xs font-mono text-[#C51F1F] font-bold uppercase tracking-widest">OFFICIAL CERTIFICATIONS</span>
             <h2 className="text-3xl sm:text-5xl font-extrabold font-sans text-white">NPTEL COURSE CREDENTIALS</h2>
           </div>
 
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={staggerContainer}
-          >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {nptelCertificates.map((cert) => (
-              <motion.div key={cert.id} variants={fadeInUp} className="bento-card-editorial p-6 space-y-4 flex flex-col justify-between">
+              <div key={cert.id} className="bento-card-editorial p-6 space-y-4 flex flex-col justify-between">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
                     <span className="text-[11px] font-mono text-[#C51F1F] font-bold">{cert.offeredBy}</span>
@@ -496,9 +436,9 @@ export default function App() {
                   <Eye className="w-4 h-4" />
                   <span>View Official Certificate</span>
                 </button>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -534,13 +474,9 @@ export default function App() {
       {/* ==================================================================== */}
       {/* 9. CONTACT SECTION                                                   */}
       {/* ==================================================================== */}
-      <motion.section 
+      <section 
         id="contact" 
         className="py-24 bg-[#090909]"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={fadeInUp}
       >
         <div className="max-w-4xl mx-auto px-6 sm:px-10 lg:px-12 space-y-12">
           <div className="text-center space-y-3">
@@ -608,7 +544,7 @@ export default function App() {
             )}
           </div>
         </div>
-      </motion.section>
+      </section>
 
       {/* POPUP MODALS */}
       {activeCaseStudy && (
