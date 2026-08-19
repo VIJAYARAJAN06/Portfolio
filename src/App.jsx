@@ -625,17 +625,13 @@ export default function App() {
               <span>NPTEL Online Certifications (IIT & IIIT Courses)</span>
             </h3>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {nptelCertificates.map((cert) => (
-                <motion.div
+                <div
                   key={cert.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                  className="bento-card-editorial p-6 flex flex-col justify-between space-y-6 border border-white/10 hover:border-[#C51F1F]/60 group"
+                  className="bento-card-editorial p-6 flex flex-col justify-between space-y-4 border border-white/10 hover:border-[#C51F1F]/60 group"
                 >
-                  <div className="space-y-4">
+                  <div className="space-y-3">
                     <div className="flex justify-between items-start gap-4">
                       <span className="px-3 py-1 rounded-full bg-[#C51F1F]/20 text-[#C51F1F] font-mono text-xs font-bold border border-[#C51F1F]/30">
                         {cert.badge}
@@ -651,31 +647,25 @@ export default function App() {
                       <div><span className="text-slate-500">Offered By:</span> <strong className="text-white">{cert.offeredBy}</strong></div>
                       <div><span className="text-slate-500">Score:</span> <strong className="text-[#C51F1F] font-extrabold">{cert.score}</strong></div>
                     </div>
-                  </div>
 
-                  {/* Certificate Image Preview Card with Clickable Zoom */}
-                  <div className="relative h-48 rounded-xl overflow-hidden border border-white/10 group-hover:border-[#C51F1F]/40 cursor-pointer" onClick={() => setActiveCertModal(cert)}>
-                    <img
-                      src={cert.image}
-                      alt={cert.title}
-                      className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                      <span className="px-4 py-2 rounded-xl bg-[#C51F1F] text-white font-mono text-xs font-extrabold flex items-center gap-2 shadow-2xl">
-                        <Eye className="w-4 h-4" />
-                        <span>View Certificate Image</span>
-                      </span>
+                    <div className="flex flex-wrap gap-2 pt-1">
+                      {cert.tags.map((t, idx) => (
+                        <span key={idx} className="px-2.5 py-0.5 rounded bg-black text-slate-300 font-mono text-[11px] border border-white/10">
+                          {t}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
-                  <div className="flex flex-wrap gap-2 pt-2 border-t border-white/5">
-                    {cert.tags.map((t, idx) => (
-                      <span key={idx} className="px-2.5 py-0.5 rounded bg-black text-slate-300 font-mono text-[11px] border border-white/10">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
+                  {/* Click to View Certificate Button */}
+                  <button
+                    onClick={() => setActiveCertModal(cert)}
+                    className="w-full py-3 rounded-xl bg-white text-black font-extrabold font-mono text-xs hover:bg-[#C51F1F] hover:text-white transition-all flex items-center justify-center gap-2 shadow-md mt-2"
+                  >
+                    <Eye className="w-4 h-4" />
+                    <span>View Official Certificate</span>
+                  </button>
+                </div>
               ))}
             </div>
           </div>
